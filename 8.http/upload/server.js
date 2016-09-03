@@ -12,7 +12,7 @@ http.createServer(function (req,res) {
         res.setHeader('Content-type','text/html;charset=utf8');
         fs.createReadStream('./upload.html').pipe(res);
     }else if(pathname=='/upload'){
-        var form = new formidable.IncomingForm()
+        var form = new formidable.IncomingForm();
         form.parse(req, function(err, fields, files) {
             console.log(files);
             //从电脑缓存中 读取到我们的服务器上
@@ -33,4 +33,4 @@ http.createServer(function (req,res) {
            res.end(SATUS_CODE[status]);
         }
     }
-}).listen(3000);
+}).listen(8181);
